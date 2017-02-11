@@ -16,6 +16,15 @@ class AdvertController extends Controller
 	 */
 	public function indexAction($page)
 	{
+
+		// Test du service antispam
+		$antispam = $this->container->get('oc_platform.antispam');
+		$text = '...';
+		if ($antispam->isSpam($text)) {
+			//throw new \Exception('Votre message a été détecté comme spam !');
+		}
+
+		
 		// On ne sait pas combien de pages il y a
 		// Mais on sait qu'une page doit être supérieure ou égale à 1
 		if ($page < 1) {
