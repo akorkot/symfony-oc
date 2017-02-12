@@ -1,0 +1,44 @@
+{# src/OC/CoreBundle/Resources/views/Global/index.html.twig #}
+
+{% extends "OCCoreBundle::layout.html.twig" %}
+
+{% block title %}
+    Page d'accueil temporaire de notre site
+{% endblock %}
+
+{% block header %}
+    <h1>Page d'accueil de notre site</h1>
+    <p>
+        Ce projet est propulsé par Symfony2,
+        et construit grâce au MOOC OpenClassrooms et SensioLabs.
+    </p>
+{% endblock %}
+
+{% block body %}
+
+    {% if app.session.flashBag.has('notice') %}
+        <div class="alert alert-warning">
+            {% for msg in app.session.flashBag.get('notice') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+
+    <h2>Liste des annonces</h2>
+
+    <ul>
+        {% for advert in listAdverts %}
+            <li>
+                <a href="{{ path('oc_platform_view', {'id': advert.id}) }}">
+                    {{ advert.title }}
+                </a>
+                par {{ advert.author }},
+                le {{ advert.date|date('d/m/Y') }}
+            </li>
+        {% else %}
+            <li>Pas (encore !) d'annonces</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
