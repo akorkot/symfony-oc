@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="538234e7-2c0f-454a-aabb-21f5676150c9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/view.html.twig" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/view.html.twig" />
     </list>
     <ignored path="symfony-oc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,13 +27,25 @@
       <file leaf-file-name="AdvertController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="205" column="21" selection-start-line="205" selection-start-column="21" selection-end-line="205" selection-end-column="21" />
+            <state relative-caret-position="305">
+              <caret line="104" column="37" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="37" />
               <folding>
                 <element signature="e#106#142#0#PHP" expanded="true" />
-                <element signature="e#3445#3470#1#PHP" expanded="true" />
-                <element signature="e#6834#6859#1#PHP" expanded="true" />
+                <element signature="e#3490#3515#1#PHP" expanded="true" />
+                <element signature="e#3801#3831#1#PHP" expanded="true" />
+                <element signature="e#3913#3953#0#PHP" expanded="true" />
+                <element signature="e#7467#7492#1#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Application.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Application.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="147" column="21" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -132,6 +142,7 @@
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Advert.php" />
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/add.html.twig" />
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/view.html.twig" />
+        <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Application.php" />
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php" />
       </list>
     </option>
@@ -606,12 +617,12 @@
       <workItem from="1488320401027" duration="629000" />
       <workItem from="1488579123950" duration="529000" />
       <workItem from="1489437690466" duration="1875000" />
-      <workItem from="1489609729433" duration="2799000" />
+      <workItem from="1489609729433" duration="4203000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33217000" />
+    <option name="totallyTimeSpent" value="34621000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -663,13 +674,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -690,8 +694,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#106#142#0#PHP" expanded="true" />
-            <element signature="e#3445#3470#1#PHP" expanded="true" />
-            <element signature="e#6834#6859#1#PHP" expanded="true" />
+            <element signature="e#3490#3515#1#PHP" expanded="true" />
+            <element signature="e#3801#3831#1#PHP" expanded="true" />
+            <element signature="e#3913#3953#0#PHP" expanded="true" />
+            <element signature="e#7467#7492#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -702,8 +708,10 @@
           <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
           <folding>
             <element signature="e#106#142#0#PHP" expanded="true" />
-            <element signature="e#3445#3470#1#PHP" expanded="true" />
-            <element signature="e#6834#6859#1#PHP" expanded="true" />
+            <element signature="e#3490#3515#1#PHP" expanded="true" />
+            <element signature="e#3801#3831#1#PHP" expanded="true" />
+            <element signature="e#3913#3953#0#PHP" expanded="true" />
+            <element signature="e#7467#7492#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -728,8 +736,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#106#142#0#PHP" expanded="true" />
-            <element signature="e#3445#3470#1#PHP" expanded="true" />
-            <element signature="e#6834#6859#1#PHP" expanded="true" />
+            <element signature="e#3490#3515#1#PHP" expanded="true" />
+            <element signature="e#3801#3831#1#PHP" expanded="true" />
+            <element signature="e#3913#3953#0#PHP" expanded="true" />
+            <element signature="e#7467#7492#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -740,8 +750,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#106#142#0#PHP" expanded="true" />
-            <element signature="e#3445#3470#1#PHP" expanded="true" />
-            <element signature="e#6834#6859#1#PHP" expanded="true" />
+            <element signature="e#3490#3515#1#PHP" expanded="true" />
+            <element signature="e#3801#3831#1#PHP" expanded="true" />
+            <element signature="e#3913#3953#0#PHP" expanded="true" />
+            <element signature="e#7467#7492#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -752,8 +764,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#106#142#0#PHP" expanded="true" />
-            <element signature="e#3445#3470#1#PHP" expanded="true" />
-            <element signature="e#6834#6859#1#PHP" expanded="true" />
+            <element signature="e#3490#3515#1#PHP" expanded="true" />
+            <element signature="e#3801#3831#1#PHP" expanded="true" />
+            <element signature="e#3913#3953#0#PHP" expanded="true" />
+            <element signature="e#7467#7492#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1035,14 +1049,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Application.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="147" column="21" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="205" column="21" selection-start-line="205" selection-start-column="21" selection-end-line="205" selection-end-column="21" />
+        <state relative-caret-position="305">
+          <caret line="104" column="37" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="37" />
           <folding>
             <element signature="e#106#142#0#PHP" expanded="true" />
-            <element signature="e#3445#3470#1#PHP" expanded="true" />
-            <element signature="e#6834#6859#1#PHP" expanded="true" />
+            <element signature="e#3490#3515#1#PHP" expanded="true" />
+            <element signature="e#3801#3831#1#PHP" expanded="true" />
+            <element signature="e#3913#3953#0#PHP" expanded="true" />
+            <element signature="e#7467#7492#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
