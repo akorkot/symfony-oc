@@ -61,6 +61,12 @@ class Advert
     private $image;
 
     /**
+     * @ORM\ManyToMany(targetEntity="OC\PlatformBundle\Entity\Category", cascade={"persist"})
+     */
+    private $categories;
+
+
+    /**
      * Advert constructor.
      */
     public function __construct()
@@ -215,5 +221,38 @@ class Advert
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Add categories
+     *
+     * @param \OC\PlatformBundle\Entity\Category $categories
+     * @return Advert
+     */
+    public function addCategory(\OC\PlatformBundle\Entity\Category $categories)
+    {
+        $this->categories[] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Remove categories
+     *
+     * @param \OC\PlatformBundle\Entity\Category $categories
+     */
+    public function removeCategory(\OC\PlatformBundle\Entity\Category $categories)
+    {
+        $this->categories->removeElement($categories);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }
