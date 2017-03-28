@@ -5,11 +5,17 @@ namespace OC\PlatformBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use OC\PlatformBundle\Entity\Image;
 
+
+// Utilisation du namespace de l'annotation Gedmo qui va permettre à l'entité advert de définir un champ slugable (slug).
+use Gedmo\Mapping\Annotation as Gedmo;
+
+
 /**
  * Advert
  *
  * @ORM\Table(name="advert")
  * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\AdvertRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Advert
 {
@@ -69,6 +75,22 @@ class Advert
      * @ORM\OneToMany(targetEntity="OC\PlatformBundle\Entity\Application", mappedBy="advert")
      */
     private $applications;
+
+    /**
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @ORM\Column(name="nb_applications", type="integer")
+     */
+    private $nbApplications = 0;
+
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
 
     /**
      * Advert constructor.
@@ -259,4 +281,64 @@ class Advert
     {
         return $this->categories;
     }
+
+    /**
+     * Add applications
+     *
+     * @param \OC\PlatformBundle\Entity\Application $applications
+     * @return Advert
+     */
+    public function addApplication(\OC\PlatformBundle\Entity\Application $applications)
+    {
+        $this->applications[] = $applications;
+
+        return $this;
+    }
+
+    /**
+     * Remove applications
+     *
+     * @param \OC\PlatformBundle\Entity\Application $applications
+     */
+    public function removeApplication(\OC\PlatformBundle\Entity\Application $applications)
+    {
+        $this->applications->removeElement($applications);
+    }
+
+    /**
+     * Get applications
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getApplications()
+    {
+        return $this->applications;
+    }
+
+    /**
+     * Incrémente le nombre de candidature par annonce de 1
+     */
+    public function increaseApplication()
+    {
+        $this->nbApplications++;
+    }
+
+    /**
+     * Décrémente le nombre de candidature par annonce de 1
+     */
+    public function decreaseApplication()
+    {
+        $this->nbApplications--;
+    }
+
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateDate()
+    {
+        $this->setUpdatedAt(new \Datetime());
+    }
+
+
 }
