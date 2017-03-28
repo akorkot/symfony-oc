@@ -10,6 +10,7 @@ use OC\PlatformBundle\Entity\Image;
  *
  * @ORM\Table(name="advert")
  * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\AdvertRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Advert
 {
@@ -70,6 +71,16 @@ class Advert
      */
     private $applications;
 
+    /**
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @ORM\Column(name="nb_applications", type="integer")
+     */
+    private $nbApplications = 0;
+    
     /**
      * Advert constructor.
      */
@@ -286,10 +297,37 @@ class Advert
     /**
      * Get applications
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getApplications()
     {
         return $this->applications;
     }
+
+    /**
+     * Incrémente le nombre de candidature par annonce de 1
+     */
+    public function increaseApplication()
+    {
+        $this->nbApplications++;
+    }
+
+    /**
+     * Décrémente le nombre de candidature par annonce de 1
+     */
+    public function decreaseApplication()
+    {
+        $this->nbApplications--;
+    }
+
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateDate()
+    {
+        $this->setUpdatedAt(new \Datetime());
+    }
+
+
 }

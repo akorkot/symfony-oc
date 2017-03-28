@@ -12,4 +12,56 @@ use Doctrine\ORM\EntityRepository;
  */
 class AdvertRepository extends EntityRepository
 {
+
+    /**
+     *
+     * @return array
+     */
+    public function myFindAll()
+    {
+        return $this
+            ->createQueryBuilder('a')
+            ->getQuery()
+            ->getResult();
+    }
+
+
+    /**
+     * @param $id
+     * @return array
+     */
+    public function myFindOne($id)
+    {
+        $qb = $this->createQueryBuilder('a');
+
+        $qb
+            ->where('a.id = :id')
+            ->setParameter('id', $id);
+
+        return $qb
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @param $author
+     * @param $year
+     * @return array
+     */
+    public function findByAuthorAndDate($author, $year)
+    {
+        $qb = $this->createQueryBuilder('a');
+
+        $qb->where('a.author = :author')
+            ->setParameter('author', $author)
+            ->andWhere('a.date < :year')
+            ->setParameter('year', $year)
+            ->orderBy('a.date', 'DESC')
+        ;
+
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
