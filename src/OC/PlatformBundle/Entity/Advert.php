@@ -86,12 +86,6 @@ class Advert
      */
     private $nbApplications = 0;
 
-    /**
-     * @Gedmo\Slug(fields={"title"})
-     * @ORM\Column(length=128, unique=true)
-     */
-    private $slug;
-     
 
     /**
      * Advert constructor.
@@ -388,27 +382,5 @@ class Advert
     {
         return $this->nbApplications;
     }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return Advert
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string 
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
+ 
 }
