@@ -2,9 +2,8 @@
 
 namespace OC\PlatformBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use OC\PlatformBundle\Entity\Image;
-
 
 // Utilisation du namespace de l'annotation Gedmo qui va permettre à l'entité advert de définir un champ slugable (slug).
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -29,29 +28,21 @@ class Advert
     private $id;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="datetimetz")
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="author", type="string", length=255, nullable=true)
      */
     private $author;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="content", type="text", nullable=true)
      */
     private $content;
@@ -62,7 +53,7 @@ class Advert
     private $published = true;
 
     /**
-     * @ORM\OneToOne(targetEntity="OC\PlatformBundle\Entity\Image", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="OC\PlatformBundle\Entity\Image", cascade={"persist", "remove"})
      */
     private $image;
 
@@ -74,7 +65,7 @@ class Advert
     /**
      * @ORM\OneToMany(targetEntity="OC\PlatformBundle\Entity\Application", mappedBy="advert")
      */
-    private $applications;
+    private $applications; // Notez le « s », une annonce est liée à plusieurs candidatures
 
     /**
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
@@ -93,7 +84,9 @@ class Advert
     public function __construct()
     {
         // Par défaut, la date de l'annonce est la date d'aujourd'hui
-        $this->date = new \Datetime();
+        $this->date         = new \Datetime();
+        $this->categories   = new ArrayCollection();
+        $this->applications = new ArrayCollection();
     }
 
     /**
@@ -311,33 +304,6 @@ class Advert
     }
 
     /**
-     * Incrémente le nombre de candidature par annonce de 1
-     */
-    public function increaseApplication()
-    {
-        $this->nbApplications++;
-    }
-
-    /**
-     * Décrémente le nombre de candidature par annonce de 1
-     */
-    public function decreaseApplication()
-    {
-        $this->nbApplications--;
-    }
-
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function updateDate()
-    {
-        $this->setUpdatedAt(new \Datetime());
-    }
-
-
-
-    /**
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
@@ -353,7 +319,7 @@ class Advert
     /**
      * Get updatedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -376,11 +342,36 @@ class Advert
     /**
      * Get nbApplications
      *
-     * @return integer 
+     * @return integer
      */
     public function getNbApplications()
     {
         return $this->nbApplications;
     }
- 
+
+
+    /**
+     * Incrémente le nombre de candidature par annonce de 1
+     */
+    public function increaseApplication()
+    {
+        $this->nbApplications++;
+    }
+
+    /**
+     * Décrémente le nombre de candidature par annonce de 1
+     */
+    public function decreaseApplication()
+    {
+        $this->nbApplications--;
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateDate()
+    {
+        $this->setUpdatedAt(new \Datetime());
+    }
+
 }

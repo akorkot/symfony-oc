@@ -3,6 +3,7 @@
 namespace OC\PlatformBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * AdvertRepository
@@ -12,77 +13,31 @@ use Doctrine\ORM\EntityRepository;
  */
 class AdvertRepository extends EntityRepository
 {
-    
-    public function getAdvertWithCategories(array $categoryNames)
-  {
-    $qb = $this->createQueryBuilder('a');
-
-    // On fait une jointure avec l'entité Category avec pour alias « c »
-    $qb
-      ->join('a.categories', 'c')
-      ->addSelect('c')
-    ;
-
-    // Puis on filtre sur le nom des catégories à l'aide d'un IN
-    $qb->where($qb->expr()->in('c.name', $categoryNames));
-    // La syntaxe du IN et d'autres expressions se trouve dans la documentation Doctrine
-
-    // Enfin, on retourne le résultat
-    return $qb
-      ->getQuery()
-      ->getResult()
-    ;
-  }
 
     /**
-     *
+     * Récupérer la liste des annonces triés par date
      * @return array
      */
-    public function myFindAll()
+    public function getAdverts($page, $nbPerPage)
     {
-        return $this
-            ->createQueryBuilder('a')
-            ->getQuery()
-            ->getResult();
-    }
-
-
-    /**
-     * @param $id
-     * @return array
-     */
-    public function myFindOne($id)
-    {
-        $qb = $this->createQueryBuilder('a');
-
-        $qb
-            ->where('a.id = :id')
-            ->setParameter('id', $id);
-
-        return $qb
-            ->getQuery()
-            ->getResult();
-    }
-
-    /**
-     * @param $author
-     * @param $year
-     * @return array
-     */
-    public function findByAuthorAndDate($author, $year)
-    {
-        $qb = $this->createQueryBuilder('a');
-
-        $qb->where('a.author = :author')
-            ->setParameter('author', $author)
-            ->andWhere('a.date < :year')
-            ->setParameter('year', $year)
+        $query = $this->createQueryBuilder('a')
+            ->leftJoin('a.image', 'i')
+            ->addSelect('i')
+            ->leftJoin('a.categories', 'c')
+            ->addSelect('c')
             ->orderBy('a.date', 'DESC')
+            ->getQuery()
         ;
 
-        return $qb
-            ->getQuery()
-            ->getResult()
-            ;
+        $query
+            // On définit l'annonce à partir de laquelle commencer la liste
+            ->setFirstResult(($page-1) * $nbPerPage)
+            // Ainsi que le nombre d'annonce à afficher sur une page
+            ->setMaxResults($nbPerPage)
+        ;
+
+        // Enfin, on retourne l'objet Paginator correspondant à la requête construite
+        return new Paginator($query, true);
     }
+
 }

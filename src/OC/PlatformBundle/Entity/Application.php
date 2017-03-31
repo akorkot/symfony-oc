@@ -39,7 +39,7 @@ class Application
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetimetz", nullable=true)
+     * @ORM\Column(name="date", type="datetime", nullable=true)
      */
     private $date;
 
