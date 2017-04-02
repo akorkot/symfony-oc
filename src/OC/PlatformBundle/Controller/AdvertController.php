@@ -121,7 +121,7 @@ class AdvertController extends Controller
         return $this->render('OCPlatformBundle:Advert:add.html.twig', array(
             'form' => $form->createView(),
         ));
-    }
+    } 
 
     /**
      * @param $id

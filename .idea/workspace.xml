@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="538234e7-2c0f-454a-aabb-21f5676150c9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/symfony-oc.iml" afterPath="$PROJECT_DIR$/.idea/symfony-oc.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/add.html.twig" afterPath="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/add.html.twig" />
     </list>
     <ignored path="symfony-oc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,17 +34,17 @@
       <file leaf-file-name="AdvertController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="121" column="42" selection-start-line="121" selection-start-column="42" selection-end-line="121" selection-end-column="42" />
+            <state relative-caret-position="389">
+              <caret line="123" column="6" selection-start-line="123" selection-start-column="6" selection-end-line="123" selection-end-column="6" />
               <folding>
                 <element signature="e#1057#1082#1#PHP" expanded="true" />
                 <element signature="e#2089#2114#1#PHP" expanded="true" />
                 <element signature="e#2444#2474#1#PHP" expanded="true" />
                 <element signature="e#4282#4300#0#PHP" expanded="true" />
                 <element signature="e#4682#4721#0#PHP" expanded="true" />
-                <element signature="e#5210#5235#1#PHP" expanded="true" />
-                <element signature="e#5994#6019#1#PHP" expanded="true" />
-                <element signature="e#7029#7054#1#PHP" expanded="true" />
+                <element signature="e#5211#5236#1#PHP" expanded="true" />
+                <element signature="e#5995#6020#1#PHP" expanded="true" />
+                <element signature="e#7030#7055#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -105,8 +102,8 @@
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Entity/Application.php" />
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Repository/AdvertRepository.php" />
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php" />
         <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Resources/views/Advert/add.html.twig" />
+        <option value="$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php" />
       </list>
     </option>
   </component>
@@ -412,12 +409,12 @@
       <workItem from="1490902936062" duration="4731000" />
       <workItem from="1490989961077" duration="6906000" />
       <workItem from="1491081227797" duration="1071000" />
-      <workItem from="1491126350413" duration="4471000" />
+      <workItem from="1491126350413" duration="4505000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70608000" />
+    <option name="totallyTimeSpent" value="70642000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -429,7 +426,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="1358" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18766066" sideWeight="0.49275362" order="0" side_tool="false" content_ui="combo" />
@@ -859,17 +856,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/PlatformBundle/Controller/AdvertController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="121" column="42" selection-start-line="121" selection-start-column="42" selection-end-line="121" selection-end-column="42" />
+        <state relative-caret-position="389">
+          <caret line="123" column="6" selection-start-line="123" selection-start-column="6" selection-end-line="123" selection-end-column="6" />
           <folding>
             <element signature="e#1057#1082#1#PHP" expanded="true" />
             <element signature="e#2089#2114#1#PHP" expanded="true" />
             <element signature="e#2444#2474#1#PHP" expanded="true" />
             <element signature="e#4282#4300#0#PHP" expanded="true" />
             <element signature="e#4682#4721#0#PHP" expanded="true" />
-            <element signature="e#5210#5235#1#PHP" expanded="true" />
-            <element signature="e#5994#6019#1#PHP" expanded="true" />
-            <element signature="e#7029#7054#1#PHP" expanded="true" />
+            <element signature="e#5211#5236#1#PHP" expanded="true" />
+            <element signature="e#5995#6020#1#PHP" expanded="true" />
+            <element signature="e#7030#7055#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
