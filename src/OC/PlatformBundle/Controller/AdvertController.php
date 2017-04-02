@@ -22,7 +22,7 @@ class AdvertController extends Controller
     public function indexAction($page)
     {
         if ($page < 1) {
-            throw $this->createNotFoundException("La page ".$page." n'existe pas.");
+            throw $this->createNotFoundException("La page " . $page . " n'existe pas.");
         }
 
         // Ici je fixe le nombre d'annonces par page à 3
@@ -33,22 +33,21 @@ class AdvertController extends Controller
         $listAdverts = $this->getDoctrine()
             ->getManager()
             ->getRepository('OCPlatformBundle:Advert')
-            ->getAdverts($page, $nbPerPage)
-        ;
+            ->getAdverts($page, $nbPerPage);
 
         // On calcule le nombre total de pages grâce au count($listAdverts) qui retourne le nombre total d'annonces
-        $nbPages = ceil(count($listAdverts)/$nbPerPage);
+        $nbPages = ceil(count($listAdverts) / $nbPerPage);
 
         // Si la page n'existe pas, on retourne une 404
         if ($page > $nbPages) {
-            throw $this->createNotFoundException("La page ".$page." n'existe pas.");
+            throw $this->createNotFoundException("La page " . $page . " n'existe pas.");
         }
 
         // On donne toutes les informations nécessaires à la vue
         return $this->render('OCPlatformBundle:Advert:index.html.twig', array(
             'listAdverts' => $listAdverts,
-            'nbPages'     => $nbPages,
-            'page'        => $page
+            'nbPages' => $nbPages,
+            'page' => $page
         ));
     }
 
@@ -85,18 +84,43 @@ class AdvertController extends Controller
      */
     public function addAction(Request $request)
     {
-        // La gestion d'un formulaire est particulière, mais l'idée est la suivante :
-        if ($request->isMethod('POST')) {
+        $advert = new Advert();
 
-            // Ici, on s'occupera de la création et de la gestion du formulaire
-            $request->getSession()->getFlashBag()->add('info', 'Annonce bien enregistrée.');
+        // J'ai raccourci cette partie, car c'est plus rapide à écrire !
+        $form = $this->get('form.factory')->createBuilder('form', $advert)
+            ->add('date',      'date')
+            ->add('title',     'text')
+            ->add('content',   'textarea')
+            ->add('author',    'text')
+            ->add('published', 'checkbox')
+            ->add('save',      'submit')
+            ->getForm()
+        ;
 
-            // Puis on redirige vers la page de visualisation de cet article
-            return $this->redirect($this->generateUrl('oc_platform_view', array('id' => 1)));
+        // On fait le lien Requête <-> Formulaire
+        // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
+        $form->handleRequest($request);
+
+        // On vérifie que les valeurs entrées sont correctes
+        // (Nous verrons la validation des objets en détail dans le prochain chapitre)
+        if ($form->isValid()) {
+            // On l'enregistre notre objet $advert dans la base de données, par exemple
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($advert);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+
+            // On redirige vers la page de visualisation de l'annonce nouvellement créée
+            return $this->redirect($this->generateUrl('oc_platform_view', array('id' => $advert->getId())));
         }
 
-        // Si on n'est pas en POST, alors on affiche le formulaire
-        return $this->render('OCPlatformBundle:Advert:add.html.twig');
+        // À ce stade, le formulaire n'est pas valide car :
+        // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+        // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
+        return $this->render('OCPlatformBundle:Advert:add.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 
     /**
