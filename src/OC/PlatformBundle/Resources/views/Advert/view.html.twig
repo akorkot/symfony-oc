@@ -9,16 +9,16 @@
 
     <h2>{{ advert.title }}</h2>
     <i>Par {{ advert.author }}, le {{ advert.date|date('d/m/Y') }}</i>
-    <br />
-    <br />
+    <br/>
+    <br/>
     {% if not advert.categories.empty %}
         <p>
-            Cette annonce est parue dans les catégories suivantes : <br />
-            <ul>
-                {% for category in advert.categories %}
-                    <li>{{ category.name }}</li>
-                {% endfor %}
-            </ul>
+            Cette annonce est parue dans les catégories suivantes : <br/>
+        <ul>
+            {% for category in advert.categories %}
+                <li>{{ category.name }}</li>
+            {% endfor %}
+        </ul>
         </p>
     {% endif %}
 
@@ -27,7 +27,10 @@
         {# On vérifie qu'une image soit bien associée à l'annonce #}
         {% if advert.image is not null %}
             <div>
-                <img src="{{ advert.image.url }}" alt="{{ advert.image.alt }}"/>
+                <img
+                        src="{{ asset(advert.image.webPath) }}"
+                        alt="{{ advert.image.alt }}"
+                />
             </div>
         {% endif %}
 
